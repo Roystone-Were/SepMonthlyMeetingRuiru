@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>XanaLife Ruiru · Monthly Meeting · September 2026</title>
+<meta name="description" content="XanaLife Ruiru monthly meeting: issues closed, issues in the pipeline, August and September sales vs the KES 400,000 daily target. Benard / Antony.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+  --paper:#FDFDFB; --ink:#0F1E19; --ink-soft:#55655E; --hairline:#DCE2DE;
+  --navy:#0F3057; --navy-deep:#0A2340; --green:#1F7B4A; --amber:#E8A33D;
+  --alert:#B3341F; --onband:#F4F8F5; --fill:#8A9891; --shade:#F2F5F2;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.stage{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow-x:clip}
+.slide{display:none;flex:1;padding:28px 20px 120px;min-height:100vh;flex-direction:column;justify-content:center;gap:18px;max-width:1180px;margin:0 auto;width:100%}
+.slide.is-current{display:flex}
+  .slide.is-current{animation:slideIn .32s ease-out}
+  .stage[data-dir="fwd"] .slide.is-current{--sx:24px}
+  .stage[data-dir="back"] .slide.is-current{--sx:-24px}
+  @keyframes slideIn{from{opacity:0;transform:translateX(var(--sx,24px))}to{opacity:1;transform:none}}
+  .slide.is-current .pointlist li,.slide.is-current .numlist li,.slide.is-current .grid2>*,.slide.is-current .grid3>*{animation:listIn .34s ease-out backwards;animation-delay:calc(var(--n,0)*40ms)}
+  @keyframes listIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .slide.is-current .bar i{animation:grow .6s ease-out backwards;transform-origin:left center}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.slide.tall{justify-content:flex-start;padding-top:36px}
+.slide.band{background:var(--navy-deep);color:var(--onband);max-width:none}
+.slide.band .inner{max-width:1180px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:16px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+.band .eyebrow{color:var(--amber)}
+h1{font-size:clamp(36px,9vw,78px);font-weight:900;letter-spacing:-.032em;line-height:.98;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,7vw,54px);font-weight:800;letter-spacing:-.028em;line-height:1.03;margin:0;text-wrap:balance}
+.lede{font-family:var(--serif);line-height:1.52;margin:0;max-width:60ch;font-size:clamp(17px,4.4vw,22px);color:var(--ink-soft)}
+.band .lede{color:rgba(244,248,245,.82)}
+.why{font-size:clamp(15px,4vw,18px);color:var(--ink-soft);line-height:1.5;max-width:64ch;margin:0}
+.why b{color:var(--ink)}
+.label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+.ref{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fill);margin:0}
+.bignum{font-size:clamp(52px,14vw,110px);font-weight:900;line-height:.9;letter-spacing:-.05em;color:var(--green);font-variant-numeric:tabular-nums}
+.band .bignum{color:var(--amber)}
+.numlist{list-style:none;counter-reset:n;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;max-width:74ch}
+.numlist li{counter-increment:n;position:relative;padding-left:44px;font-size:clamp(15px,4.2vw,19px);line-height:1.42}
+.numlist li::before{content:counter(n);position:absolute;left:0;top:0;font-weight:700;color:var(--green);font-size:20px;line-height:1.25;font-variant-numeric:tabular-nums}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.box{border:1px solid var(--hairline);background:var(--shade);padding:16px 18px;display:flex;flex-direction:column;gap:8px;border-radius:8px}
+.box-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.box.bad .box-label{color:var(--alert)} .box.good .box-label{color:var(--green)} .box.flag .box-label{color:var(--amber)}
+.box p{margin:0;font-size:clamp(15px,4vw,18px);line-height:1.45}
+.box .big{font-size:clamp(24px,6.4vw,36px);font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.box .sub{font-size:14px;color:var(--ink-soft)}
+.bar{height:10px;border-radius:99px;background:var(--hairline);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green);border-radius:99px}
+.bar.amber i{background:var(--amber)} .bar.red i{background:var(--alert)}
+.note{border-left:4px solid var(--amber);padding:4px 0 4px 16px;font-family:var(--serif);font-size:clamp(16px,4.2vw,21px);line-height:1.5;max-width:60ch;margin:0}
+.note.good{border-color:var(--green)} .note.bad{border-color:var(--alert)}
+table.data{width:100%;border-collapse:collapse;font-size:clamp(13px,3.6vw,16px);font-variant-numeric:tabular-nums}
+table.data th,table.data td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--hairline)}
+table.data th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+table.data td.num,table.data th.num{text-align:right;white-space:nowrap}
+table.data tr.total td{font-weight:800;border-bottom:none;background:var(--shade)}
+.tablewrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:8px;background:var(--paper)}
+.tablewrap table.data{min-width:0}
+.tablewrap td:first-child{overflow-wrap:anywhere}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:99px}
+.tag.ok{background:#E3F2E8;color:var(--green)} .tag.warn{background:#FBEED3;color:#8A5A12}
+.progress{position:fixed;top:0;left:0;height:4px;background:var(--green);width:0;z-index:50;transition:width .25s ease-out}
+@media(prefers-reduced-motion:reduce){.slide.is-current,.slide.is-current .numlist li,.slide.is-current .grid2>*,.slide.is-current .grid3>*,.slide.is-current .bar i{animation:none !important}.progress{transition:none}}
+.chrome{position:fixed;bottom:0;left:0;right:0;z-index:40;background:rgba(253,253,251,.92);backdrop-filter:blur(8px);border-top:1px solid var(--hairline);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px}
+.chrome .who{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chrome .nav{display:flex;align-items:center;gap:8px}
+.chrome button{font-family:inherit;font-size:16px;font-weight:700;border:1px solid var(--hairline);background:var(--ink);color:var(--paper);border-radius:10px;padding:12px 18px;cursor:pointer;min-height:48px}
+.chrome button:first-child{background:transparent;color:var(--ink)}
+.chrome button:disabled{opacity:.35;cursor:default}
+.counter{font-size:13px;font-weight:700;color:var(--ink-soft);font-variant-numeric:tabular-nums;min-width:56px;text-align:center}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="stage" id="stage" data-dir="fwd">
+
+  <!-- 01 cover -->
+  <section class="slide band">
+    <div class="inner">
+      <div class="eyebrow">XanaLife Ruiru &middot; monthly meeting &middot; September 2026</div>
+      <h1>Ruiru monthly meeting.</h1>
+      <p class="lede">Eight issues closed, two still in the pipeline, August and September sales against the KES 400,000 daily target, and what must happen before we leave the room.</p>
+      <p class="ref">Swipe or tap Next &middot; 10 short screens &middot; works on your phone</p>
+      <p class="ref">Presented by Benard / Antony</p>
+    </div>
+  </section>
+
+  <!-- 02 fixed -->
+  <section class="slide tall">
+    <div class="eyebrow">01 &middot; Progress</div>
+    <h2>Issues addressed.</h2>
+    <p class="why">Eight items from the last meeting, all marked done in the deck.</p>
+    <div class="grid2">
+      <div class="box good"><span class="box-label">Staff lounge</span><p><span class="tag ok">Done</span></p><p>Microwave installed in the staff lounge.</p></div>
+      <div class="box good"><span class="box-label">Entrance safety</span><p><span class="tag ok">Done</span></p><p>Glass visibility strips fitted on the entrance glass door.</p></div>
+      <div class="box good"><span class="box-label">Deli range</span><p><span class="tag ok">Done</span></p><p>Different products and SKUs introduced, particularly at the deli.</p></div>
+      <div class="box good"><span class="box-label">Checkout speed</span><p><span class="tag ok">Done</span></p><p>Receipt-processing duration improved.</p></div>
+      <div class="box good"><span class="box-label">Marketing</span><p><span class="tag ok">Done</span></p><p>Marketing activities resumed.</p></div>
+      <div class="box good"><span class="box-label">World Pharmacy Day</span><p><span class="tag ok">Done</span></p><p>World Pharmacy Day walk was successful, ROI was positive.</p></div>
+      <div class="box good"><span class="box-label">Family Fun Day</span><p><span class="tag ok">Done</span></p><p>Family Fun Day held, conversion to sales was positive.</p></div>
+      <div class="box good"><span class="box-label">M-Pesa shop</span><p><span class="tag ok">Done</span></p><p>M-Pesa shop is operational and gaining good traffic.</p></div>
+    </div>
+    <p class="note good">A clean sweep on the action list. Marketing plus events is the combo now pulling traffic.</p>
+  </section>
+
+  <!-- 03 pipeline -->
+  <section class="slide tall">
+    <div class="eyebrow">02 &middot; Still open</div>
+    <h2>Issues in the pipeline.</h2>
+    <ol class="numlist">
+      <li><b>Billboard:</b> installation at the entrance is still pending.</li>
+      <li><b>Branch stocktake:</b> plan the exercise to establish where the branch stands and reduce the system challenges.</li>
+    </ol>
+    <p class="note">Two items carry forward. The stocktake is the one that unblocks everything else.</p>
+  </section>
+
+  <!-- 04 august band -->
+  <section class="slide band">
+    <div class="inner">
+      <div class="eyebrow">Part two &middot; August</div>
+      <div class="bignum">8.64M</div>
+      <h1>August: 69.6% of target.</h1>
+      <p class="lede">Total sales KES 8,636,316 against a KES 12,400,000 monthly target. One day beat the KES 400,000 daily target; four days reached 90% or more.</p>
+    </div>
+  </section>
+
+  <!-- 05 august detail -->
+  <section class="slide tall">
+    <div class="eyebrow">03 &middot; August vs the KES 400,000 daily target</div>
+    <h2>The August scorecard.</h2>
+    <div class="grid3">
+      <div class="box"><span class="box-label">Total sales</span><span class="big">8.64M</span><span class="sub">Target 12.40M &middot; 31 days</span></div>
+      <div class="box"><span class="box-label">Achievement</span><span class="big">69.6%</span><span class="sub">Shortfall 3.76M (30.4%)</span><div class="bar"><i style="width:69.6%"></i></div></div>
+      <div class="box"><span class="box-label">Avg daily sales</span><span class="big">278,591</span><span class="sub">Daily gap &minus;121,409</span></div>
+    </div>
+    <div class="grid3">
+      <div class="box"><span class="box-label">Days above target</span><span class="big">1 of 31</span><span class="sub">Day 1 only</span></div>
+      <div class="box"><span class="box-label">Days at 90%+</span><span class="big">4 days</span><span class="sub">of 31</span></div>
+      <div class="box flag"><span class="box-label">Range</span><span class="big">192k – 420k</span><span class="sub">Day 5 low &middot; Day 1 high</span></div>
+    </div>
+    <p class="label">Best and worst days</p>
+    <div class="tablewrap"><table class="data">
+      <tr><th>Day</th><th class="num">Sales</th><th class="num">vs 400k</th></tr>
+      <tr><td>Day 1 (highest)</td><td class="num">419,735</td><td class="num">105%</td></tr>
+      <tr><td>Day 5 (lowest)</td><td class="num">191,700</td><td class="num">48%</td></tr>
+    </table></div>
+  </section>
+
+  <!-- 06 september band -->
+  <section class="slide band">
+    <div class="inner">
+      <div class="eyebrow">Part three &middot; September to the 28th</div>
+      <div class="bignum">8.03M</div>
+      <h1>September to date: 71.7% of target.</h1>
+      <p class="lede">KES 8,026,903 against a KES 11,200,000 target to date. Three days beat the daily target, and Day 27 hit 156%.</p>
+    </div>
+  </section>
+
+  <!-- 07 september detail -->
+  <section class="slide tall">
+    <div class="eyebrow">04 &middot; September vs the KES 400,000 daily target</div>
+    <h2>The September scorecard.</h2>
+    <div class="grid3">
+      <div class="box"><span class="box-label">Total sales (28 days)</span><span class="big">8.03M</span><span class="sub">Target to date 11.20M</span></div>
+      <div class="box"><span class="box-label">Achievement</span><span class="big">71.7%</span><span class="sub">Shortfall 3.17M</span><div class="bar"><i style="width:71.7%"></i></div></div>
+      <div class="box"><span class="box-label">Avg daily sales</span><span class="big">286,675</span><span class="sub">Daily gap &minus;113,325</span></div>
+    </div>
+    <div class="grid3">
+      <div class="box"><span class="box-label">Days above target</span><span class="big">3 of 28</span><span class="sub">vs 1 of 31 in August</span></div>
+      <div class="box"><span class="box-label">Days at 90%+</span><span class="big">5 of 28</span><span class="sub">vs 4 of 31 in August</span></div>
+      <div class="box flag"><span class="box-label">Standout</span><span class="big">622,681</span><span class="sub">Day 27 &middot; 156% of target</span></div>
+    </div>
+    <p class="label">Best and worst days</p>
+    <div class="tablewrap"><table class="data">
+      <tr><th>Day</th><th class="num">Sales</th><th class="num">vs 400k</th></tr>
+      <tr><td>Day 27 (highest)</td><td class="num">622,681</td><td class="num">156%</td></tr>
+      <tr><td>Day 14 (lowest)</td><td class="num">191,245</td><td class="num">48%</td></tr>
+    </table></div>
+    <p class="ref">Departmental charts (Aug total, Sep to 28th) are image slides in the deck; figures as presented above are the deck text numbers.</p>
+  </section>
+
+  <!-- 08 momentum -->
+  <section class="slide tall">
+    <div class="eyebrow">05 &middot; August to September</div>
+    <h2>Momentum is building.</h2>
+    <div class="grid3">
+      <div class="box good"><span class="box-label">Daily average</span><span class="big">+2.9%</span><span class="sub">278,591 to 286,675 (+8,084/day)</span><div class="bar"><i style="width:71.7%"></i></div></div>
+      <div class="box good"><span class="box-label">Achievement</span><span class="big">69.6 to 71.7%</span><span class="sub">+2.1 pts vs daily target</span><div class="bar"><i style="width:71.7%"></i></div></div>
+      <div class="box good"><span class="box-label">Winning days</span><span class="big">1 to 3</span><span class="sub">Days above 400k, plus 90%+ days 4 to 5</span></div>
+    </div>
+    <p class="note good">Direction is right, pace is not enough yet. The gap is still KES 113,325 per day.</p>
+    <p class="note bad">Full-month maths: 12.00M target needs 3.97M in the last 2 days (about 1.99M/day). September closes short; protect the run-rate into October.</p>
+  </section>
+
+  <!-- 09 actions -->
+  <section class="slide tall">
+    <div class="eyebrow">06 &middot; Conclusion</div>
+    <h2>What we agree before leaving.</h2>
+    <ol class="numlist">
+      <li><b>Billboard:</b> fix a date for the entrance installation.</li>
+      <li><b>Stocktake:</b> set the branch stocktake date to clear the system challenges.</li>
+      <li><b>Hold the gains:</b> deli SKUs, faster receipts, resumed marketing, M-Pesa traffic.</li>
+      <li><b>Repeat what worked:</b> more Family Fun Day style conversion drivers toward KES 400,000 a day.</li>
+      <li><b>Study Day 27:</b> bottle what made KES 622,681 and replay it.</li>
+    </ol>
+  </section>
+
+  <!-- 10 close -->
+  <section class="slide band">
+    <div class="inner">
+      <div class="eyebrow">XanaLife Ruiru &middot; September 2026</div>
+      <h1>Thank you.</h1>
+      <p class="lede">By Benard / Antony.</p>
+      <p class="ref" style="color:rgba(244,248,245,.55)">Internal use &middot; figures as presented in the monthly meeting deck</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="chrome">
+  <span class="who">XanaLife Ruiru &middot; monthly meeting</span>
+  <div class="nav">
+    <button type="button" id="prev" aria-label="Previous slide">&larr; Back</button>
+    <span class="counter" id="counter">1 / 10</span>
+    <button type="button" id="next" aria-label="Next slide">Next &rarr;</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var slides=Array.prototype.slice.call(document.querySelectorAll(".slide"));
+  var counter=document.getElementById("counter"),bar=document.getElementById("progress");
+  var prevBtn=document.getElementById("prev"),nextBtn=document.getElementById("next");
+  document.querySelectorAll(".numlist,.grid2,.grid3").forEach(function(list){
+    Array.prototype.forEach.call(list.children,function(child,idx){child.style.setProperty("--n",idx)});
+  });
+  var i=0;
+  function render(){
+    var stage=document.getElementById("stage");
+    if(i>window.__last)stage.dataset.dir="fwd";else if(i<window.__last)stage.dataset.dir="back";
+    window.__last=i;
+    slides.forEach(function(s,n){s.classList.toggle("is-current",n===i)});
+    counter.textContent=(i+1)+" / "+slides.length;
+    bar.style.width=((i+1)/slides.length*100)+"%";
+    prevBtn.disabled=(i===0);
+    nextBtn.disabled=(i===slides.length-1);
+    window.scrollTo(0,0);
+  }
+  function fwd(){if(i<slides.length-1){i++;render()}}
+  function back(){if(i>0){i--;render()}}
+  window.__last=0;
+  nextBtn.addEventListener("click",fwd);prevBtn.addEventListener("click",back);
+  document.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){e.preventDefault();fwd()}
+    else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();back()}
+    else if(e.key==="Home"){i=0;render()}
+    else if(e.key==="End"){i=slides.length-1;render()}
+  });
+  var tx=null;
+  document.addEventListener("touchstart",function(e){tx=e.changedTouches[0].clientX},{passive:true});
+  document.addEventListener("touchend",function(e){
+    if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;
+    if(Math.abs(dx)<48)return;if(dx<0)fwd();else back();
+  },{passive:true});
+  render();
+})();
+</script>
+</body>
+</html>
