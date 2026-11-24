@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>XanaLife Ruiru · Monthly Meeting · September &amp; October 2026</title>
-<meta name="description" content="XanaLife Ruiru monthly meeting: September departmental sales, October sales to the 25th vs the KES 650,000 daily target and KES 847,000 break-even, issues, HR, staff welfare and customer experience. Prepared by supervisors Antony and Benard.">
+<title>XanaLife Ruiru · Monthly Meeting · November 2026</title>
+<meta name="description" content="XanaLife Ruiru monthly meeting: October full-month departmental sales, November sales to the 24th, overall monthly sales against the KES 650,000 daily target, best trading days, issues raised and closed, branch updates and the pharmacies around the hub. Prepared by Millie and Anthony.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-
   .stage[data-dir="fwd"] .slide.is-current{--sx:24px}
   .stage[data-dir="back"] .slide.is-current{--sx:-24px}
   @keyframes slideIn{from{opacity:0;transform:translateX(var(--sx,24px))}to{opacity:1;transform:none}}
-  .slide.is-current .pointlist li,.slide.is-current .numlist li,.slide.is-current .grid2>*,.slide.is-current .grid3>*{animation:listIn .34s ease-out backwards;animation-delay:calc(var(--n,0)*40ms)}
+  .slide.is-current .pointlist li,.slide.is-current .numlist li,.slide.is-current .grid2>*,.slide.is-current .grid3>*,.slide.is-current .grid4>*,.slide.is-current .pairs>*,.slide.is-current .rankchart .row{animation:listIn .34s ease-out backwards;animation-delay:calc(var(--n,0)*40ms)}
   @keyframes listIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
   .slide.is-current .bar i{animation:grow .6s ease-out backwards;transform-origin:left center}
   @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
@@ -49,11 +49,18 @@ h2{font-size:clamp(28px,7vw,54px);font-weight:800;letter-spacing:-.028em;line-he
 .numlist li::before{content:counter(n);position:absolute;left:0;top:0;font-weight:700;color:var(--green);font-size:20px;line-height:1.25;font-variant-numeric:tabular-nums}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
 .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.grid4{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:560px){.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.grid4{grid-template-columns:repeat(4,1fr)}}
+.pairs{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:560px){.pairs{grid-template-columns:repeat(2,1fr)}}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
 .box{border:1px solid var(--hairline);background:var(--shade);padding:16px 18px;display:flex;flex-direction:column;gap:8px;border-radius:8px}
 .box-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .box.bad .box-label{color:var(--alert)} .box.good .box-label{color:var(--green)} .box.flag .box-label{color:var(--amber)}
 .box p{margin:0;font-size:clamp(15px,4vw,18px);line-height:1.45}
 .box .big{font-size:clamp(24px,6.4vw,36px);font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi .box .big{font-size:clamp(22px,5.6vw,30px)}
 .box .sub{font-size:14px;color:var(--ink-soft)}
 .bar{height:10px;border-radius:99px;background:var(--hairline);overflow:hidden}
 .bar i{display:block;height:100%;background:var(--green);border-radius:99px}
@@ -71,7 +78,7 @@ table.data tr.total td{font-weight:800;border-bottom:none;background:var(--shade
 .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:99px}
 .tag.ok{background:#E3F2E8;color:var(--green)} .tag.warn{background:#FBEED3;color:#8A5A12}
 .progress{position:fixed;top:0;left:0;height:4px;background:var(--green);width:0;z-index:50;transition:width .25s ease-out}
-@media(prefers-reduced-motion:reduce){.slide.is-current,.slide.is-current .numlist li,.slide.is-current .grid2>*,.slide.is-current .grid3>*,.slide.is-current .bar i{animation:none !important}.progress{transition:none}}
+@media(prefers-reduced-motion:reduce){.slide.is-current,.slide.is-current .numlist li,.slide.is-current .grid2>*,.slide.is-current .grid3>*,.slide.is-current .rankchart .row,.slide.is-current .bar i{animation:none !important}.progress{transition:none}}
 .chrome{position:fixed;bottom:0;left:0;right:0;z-index:40;background:rgba(253,253,251,.92);backdrop-filter:blur(8px);border-top:1px solid var(--hairline);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px}
 .chrome .who{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .chrome .nav{display:flex;align-items:center;gap:8px}
@@ -80,30 +87,26 @@ table.data tr.total td{font-weight:800;border-bottom:none;background:var(--shade
 .chrome button:disabled{opacity:.35;cursor:default}
 .counter{font-size:13px;font-weight:700;color:var(--ink-soft);font-variant-numeric:tabular-nums;min-width:56px;text-align:center}
 .dept p.label{font-size:11px;margin-top:6px}
-table.periods th.num{white-space:normal}
-table.periods td:first-child{white-space:nowrap;overflow-wrap:normal}
-@media(max-width:480px){table.periods th,table.periods td{padding:10px 6px}table.periods .full{display:none}}
-.tag.bad{background:#F6E1DC;color:var(--alert)}
 .dept .top{list-style:none;margin:0;padding:8px 0 0;border-top:1px solid var(--hairline);display:flex;flex-direction:column;gap:6px;counter-reset:t}
 .dept .top li{counter-increment:t;display:flex;gap:8px;font-size:14px;line-height:1.35}
 .dept .top li::before{content:counter(t);font-weight:700;color:var(--ink-soft);min-width:12px}
 .dept .top li span{flex:1}
 .dept .top li b{white-space:nowrap;font-variant-numeric:tabular-nums}
-.daychart{display:flex;flex-direction:column;gap:3px}
-.daychart .row{display:grid;grid-template-columns:52px 1fr 54px;align-items:center;gap:8px;font-size:13px;font-variant-numeric:tabular-nums}
-.daychart .row .d{color:var(--ink-soft);font-weight:600}
-.daychart .row .v{text-align:right;font-weight:700}
-.daychart .track{position:relative;height:14px}
-.daychart .track i{display:block;height:100%;background:var(--green);border-radius:0 4px 4px 0}
-.daychart .row:hover .track i{background:var(--navy)}
-.daychart .track::before,.daychart .track::after{content:"";position:absolute;top:-2px;bottom:-2px;border-left:2px dashed var(--amber)}
-.daychart .track::before{left:76.74%}
-.daychart .track::after{left:calc(100% - 2px);border-left-color:var(--alert)}
+.rankchart{display:flex;flex-direction:column;gap:7px}
+.rankchart .row{display:grid;grid-template-columns:86px 1fr 66px 46px;align-items:center;gap:8px;font-size:13px;font-variant-numeric:tabular-nums}
+.rankchart .row .d{color:var(--ink-soft);font-weight:600;display:flex;gap:6px;align-items:baseline;white-space:nowrap}
+.rankchart .row .d b{color:var(--fill);font-size:11px;min-width:10px;font-weight:800}
+.rankchart .row .v{text-align:right;font-weight:700}
+.rankchart .row .p{text-align:right;font-weight:700;color:var(--fill)}
+.rankchart .row.over .p{color:var(--green)}
+.rankchart .track{position:relative;height:14px}
+.rankchart .track i{display:block;height:100%;background:var(--fill);border-radius:0 4px 4px 0}
+.rankchart .row.over .track i{background:var(--green)}
+.rankchart .track::before{content:"";position:absolute;top:-3px;bottom:-3px;left:66.2%;border-left:2px dashed var(--amber)}
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink-soft)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{display:inline-block;width:14px;height:10px;border-radius:2px;background:var(--green)}
-.legend i.t,.legend i.b{width:0;height:14px;border-left:2px dashed var(--amber);border-radius:0;background:none}
-.legend i.b{border-left-color:var(--alert)}
+.legend i.t{width:0;height:14px;border-left:2px dashed var(--amber);border-radius:0;background:none}
 </style>
 </head>
 <body>
@@ -115,90 +118,70 @@ table.periods td:first-child{white-space:nowrap;overflow-wrap:normal}
     <div class="inner">
       <div class="eyebrow">XanaLife Ruiru &middot; monthly meeting</div>
       <h1>Ruiru monthly meeting.</h1>
-      <p class="lede">September departmental sales, October sales up to the 25th against the KES 650,000 daily target and KES 847,000 break-even, issues raised and resolved, HR, staff welfare, customer experience and the SPOCs around the hub.</p>
-      <p class="ref">Swipe or tap Next &middot; 12 short screens &middot; works on your phone</p>
-      <p class="ref">Prepared by supervisors Antony and Benard</p>
+      <p class="lede">November sales up to the 24th, October&rsquo;s full month, the overall monthly position against target, the best trading days, issues raised and closed, branch updates and the pharmacies around the hub.</p>
+      <p class="ref">Swipe or tap Next &middot; 10 short screens &middot; works on your phone</p>
+      <p class="ref">Prepared by Millie and Anthony</p>
     </div>
   </section>
 
-  <!-- 02 september departmental -->
+  <!-- 02 october departmental -->
   <section class="slide tall">
-    <div class="eyebrow">01 &middot; September total departmental sales</div>
-    <h2>September: KES 9,161,746.</h2>
-    <p class="why"><b>12,454 invoices</b> &middot; Sep 1, 2026 &ndash; Oct 1, 2026. Wholesale &amp; Retail carries 80.8% of sales.</p>
-    <div class="grid2">
-      <div class="box dept"><span class="box-label">Pharmacy</span><span class="big">453,663</span><span class="sub">5.0% of sales &middot; 677 invoices &middot; 921 item lines</span><div class="bar"><i style="width:5.0%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Tiza-Q (Tirzepatide) 5mg 1's</span><b>39,000</b></li><li><span>Nestle Nan 1 400g</span><b>15,050</b></li><li><span>Zepad 7.5mg/0.5ml Inj 1's (Tirzepatide)</span><b>13,800</b></li></ul></div>
-      <div class="box dept"><span class="box-label">Liquor</span><span class="big">417,562</span><span class="sub">4.6% of sales &middot; 395 invoices &middot; 465 item lines</span><div class="bar"><i style="width:4.6%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Viceroy 750ml</span><b>18,850</b></li><li><span>Balozi Can 500ml</span><b>13,750</b></li><li><span>White House 750ml</span><b>13,200</b></li></ul></div>
-      <div class="box dept"><span class="box-label">Deli / Bakery</span><span class="big">890,733</span><span class="sub">9.7% of sales &middot; 5,032 invoices &middot; 6,983 item lines</span><div class="bar"><i style="width:9.7%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>XanaLife Samosa</span><b>83,750</b></li><li><span>XanaLife Sweet Bread 400g</span><b>45,060</b></li><li><span>XanaLife Sweet Bread 800g</span><b>44,820</b></li></ul></div>
-      <div class="box dept"><span class="box-label">Wholesale &amp; Retail</span><span class="big">7,399,788</span><span class="sub">80.8% of sales &middot; 9,476 invoices &middot; 31,490 item lines</span><div class="bar"><i style="width:80.8%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Brown Sugar 50kg</span><b>302,340</b></li><li><span>Mt Kenya ESL 500ml</span><b>261,557</b></li><li><span>XanaLife Brown Sugar 2kg</span><b>145,435</b></li></ul></div>
+    <div class="eyebrow">01 &middot; October total departmental sales</div>
+    <h2>October: KES 11,010,067.</h2>
+    <p class="why"><b>15,097 invoices</b> &middot; Oct 1, 2026 &ndash; Nov 1, 2026. Wholesale &amp; Retail carries 81.6% of sales.</p>
+    <div class="grid4">
+      <div class="box dept"><span class="box-label">Pharmacy</span><span class="big">508,464</span><span class="sub">4.6% of sales &middot; 771 invoices &middot; 1,062 item lines</span><div class="bar"><i style="width:4.6%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Nestle Nan 1 400g</span><b>22,370</b></li><li><span>Zepad 7.5mg/0.5ml Inj 1&rsquo;s (Tirzepatide)</span><b>20,400</b></li><li><span>Zepad 5mg/0.5ml Inj 1&rsquo;s (Tirzepatide)</span><b>12,302</b></li></ul></div>
+      <div class="box dept"><span class="box-label">Liquor</span><span class="big">421,085</span><span class="sub">3.8% of sales &middot; 440 invoices &middot; 522 item lines</span><div class="bar"><i style="width:3.8%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Viceroy 750ml</span><b>18,850</b></li><li><span>Kenya Cane Lemon &amp; Ginger 250ml</span><b>14,400</b></li><li><span>Balozi Can 500ml</span><b>13,500</b></li></ul></div>
+      <div class="box dept"><span class="box-label">Deli / Bakery</span><span class="big">1,091,529</span><span class="sub">9.9% of sales &middot; 5,866 invoices &middot; 8,254 item lines</span><div class="bar"><i style="width:9.9%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>XanaLife Samosa</span><b>91,595</b></li><li><span>XanaLife Sweet Bread 400g</span><b>51,726</b></li><li><span>XanaLife Sweet Bread 600g</span><b>49,700</b></li></ul></div>
+      <div class="box dept"><span class="box-label">Wholesale &amp; Retail</span><span class="big">8,988,988</span><span class="sub">81.6% of sales &middot; 11,642 invoices &middot; 38,402 item lines</span><div class="bar"><i style="width:81.6%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Brown Sugar 50kg</span><b>254,832</b></li><li><span>Mt Kenya ESL 500ml</span><b>252,895</b></li><li><span>Brookside Fino 500ml</span><b>177,864</b></li></ul></div>
     </div>
   </section>
 
-  <!-- 03 october departmental -->
+  <!-- 03 november departmental -->
   <section class="slide tall">
-    <div class="eyebrow">02 &middot; October up to the 25th total sales</div>
-    <h2>October to the 25th: KES 8,636,734.</h2>
-    <p class="why"><b>12,126 invoices</b> &middot; Oct 1, 2026 &ndash; Oct 25, 2026. Wholesale &amp; Retail carries 81.3% of sales.</p>
-    <div class="grid2">
-      <div class="box dept"><span class="box-label">Pharmacy</span><span class="big">403,885</span><span class="sub">4.7% of sales &middot; 632 invoices &middot; 867 item lines</span><div class="bar"><i style="width:4.7%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Zepad 7.5mg/0.5ml Inj 1's (Tirzepatide)</span><b>20,400</b></li><li><span>Nestle Nan 1 400g</span><b>17,000</b></li><li><span>Brilinta 90mg Tabs 56's</span><b>11,480</b></li></ul></div>
-      <div class="box dept"><span class="box-label">Liquor</span><span class="big">343,635</span><span class="sub">4.0% of sales &middot; 363 invoices &middot; 432 item lines</span><div class="bar"><i style="width:4.0%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Viceroy 750ml</span><b>17,400</b></li><li><span>Kenya Cane Pineapple 750ml</span><b>12,600</b></li><li><span>Kenya Cane Lemon &amp; Ginger 250ml</span><b>12,480</b></li></ul></div>
-      <div class="box dept"><span class="box-label">Deli / Bakery</span><span class="big">865,838</span><span class="sub">10.0% of sales &middot; 4,663 invoices &middot; 6,553 item lines</span><div class="bar"><i style="width:10.0%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>XanaLife Samosa</span><b>75,720</b></li><li><span>XanaLife Sweet Bread 400g</span><b>44,286</b></li><li><span>XanaLife Sweet Bread 600g</span><b>39,300</b></li></ul></div>
-      <div class="box dept"><span class="box-label">Wholesale &amp; Retail</span><span class="big">7,023,377</span><span class="sub">81.3% of sales &middot; 9,372 invoices &middot; 30,947 item lines</span><div class="bar"><i style="width:81.3%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Brown Sugar 50kg</span><b>193,632</b></li><li><span>Mt Kenya ESL 500ml</span><b>180,417</b></li><li><span>Riri Maize Flour 2kg</span><b>109,361</b></li></ul></div>
+    <div class="eyebrow">02 &middot; November up to the 24th total sales</div>
+    <h2>November to the 24th: KES 9,360,766.</h2>
+    <p class="why"><b>13,176 invoices</b> &middot; Nov 1, 2026 &ndash; Nov 24, 2026. Wholesale &amp; Retail carries 82.0% of sales.</p>
+    <div class="grid4">
+      <div class="box dept"><span class="box-label">Pharmacy</span><span class="big">326,564</span><span class="sub">3.5% of sales &middot; 581 invoices &middot; 757 item lines</span><div class="bar"><i style="width:3.5%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Tiza-Q (Tirzepatide) 2.5mg 1&rsquo;s</span><b>8,700</b></li><li><span>Omron BP Machine M2+</span><b>8,200</b></li><li><span>La Roche Posay Effaclar H Iso-Biome</span><b>6,399</b></li></ul></div>
+      <div class="box dept"><span class="box-label">Liquor</span><span class="big">376,945</span><span class="sub">4.0% of sales &middot; 404 invoices &middot; 477 item lines</span><div class="bar"><i style="width:4.0%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Manyatta P&amp;M 330ml can</span><b>18,585</b></li><li><span>Smirnoff Ice Pineapple Can 330ml</span><b>15,750</b></li><li><span>Kenya Cane Pineapple 750ml</span><b>15,120</b></li></ul></div>
+      <div class="box dept"><span class="box-label">Deli / Bakery</span><span class="big">985,171</span><span class="sub">10.5% of sales &middot; 4,976 invoices &middot; 7,084 item lines</span><div class="bar"><i style="width:10.5%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>XanaLife Samosa</span><b>72,240</b></li><li><span>XanaLife Grilled Chicken Full</span><b>52,120</b></li><li><span>XanaLife Sweet Bread 800g</span><b>51,900</b></li></ul></div>
+      <div class="box dept"><span class="box-label">Wholesale &amp; Retail</span><span class="big">7,672,086</span><span class="sub">82.0% of sales &middot; 10,123 invoices &middot; 32,157 item lines</span><div class="bar"><i style="width:82.0%"></i></div><p class="label">Top 3</p><ul class="top"><li><span>Mt Kenya ESL 500ml</span><b>469,842</b></li><li><span>Brown Sugar 1kg From 10kg</span><b>222,970</b></li><li><span>Top Fry 5L</span><b>196,940</b></li></ul></div>
     </div>
   </section>
 
-  <!-- 04 october daily -->
+  <!-- 04 overall monthly sales -->
   <section class="slide tall">
-    <div class="eyebrow">03 &middot; October daily sales</div>
-    <h2>Daily sales vs target and break-even.</h2>
-    <div class="legend"><span><i></i>Actual sales</span><span><i class="t"></i>Sales target 650,000</span><span><i class="b"></i>Break-even 847,000</span></div>
-    <div class="daychart" role="img" aria-label="Daily sales 1 to 25 October; every day is below the 650K target and the 847K break-even">
-      <div class="row" title="1 Oct: 292.6K &middot; 45% of target &middot; 35% of break-even"><span class="d">1 Oct</span><span class="track"><i style="width:34.55%"></i></span><span class="v">292.6K</span></div>
-      <div class="row" title="2 Oct: 361.4K &middot; 56% of target &middot; 43% of break-even"><span class="d">2 Oct</span><span class="track"><i style="width:42.67%"></i></span><span class="v">361.4K</span></div>
-      <div class="row" title="3 Oct: 431.2K &middot; 66% of target &middot; 51% of break-even"><span class="d">3 Oct</span><span class="track"><i style="width:50.91%"></i></span><span class="v">431.2K</span></div>
-      <div class="row" title="4 Oct: 353.4K &middot; 54% of target &middot; 42% of break-even"><span class="d">4 Oct</span><span class="track"><i style="width:41.72%"></i></span><span class="v">353.4K</span></div>
-      <div class="row" title="5 Oct: 246.1K &middot; 38% of target &middot; 29% of break-even"><span class="d">5 Oct</span><span class="track"><i style="width:29.06%"></i></span><span class="v">246.1K</span></div>
-      <div class="row" title="6 Oct: 485.3K &middot; 75% of target &middot; 57% of break-even"><span class="d">6 Oct</span><span class="track"><i style="width:57.30%"></i></span><span class="v">485.3K</span></div>
-      <div class="row" title="7 Oct: 430.5K &middot; 66% of target &middot; 51% of break-even"><span class="d">7 Oct</span><span class="track"><i style="width:50.83%"></i></span><span class="v">430.5K</span></div>
-      <div class="row" title="8 Oct: 291.7K &middot; 45% of target &middot; 34% of break-even"><span class="d">8 Oct</span><span class="track"><i style="width:34.44%"></i></span><span class="v">291.7K</span></div>
-      <div class="row" title="9 Oct: 317.4K &middot; 49% of target &middot; 37% of break-even"><span class="d">9 Oct</span><span class="track"><i style="width:37.47%"></i></span><span class="v">317.4K</span></div>
-      <div class="row" title="10 Oct: 416.4K &middot; 64% of target &middot; 49% of break-even"><span class="d">10 Oct</span><span class="track"><i style="width:49.16%"></i></span><span class="v">416.4K</span></div>
-      <div class="row" title="11 Oct: 347K &middot; 53% of target &middot; 41% of break-even"><span class="d">11 Oct</span><span class="track"><i style="width:40.97%"></i></span><span class="v">347K</span></div>
-      <div class="row" title="12 Oct: 217.5K &middot; 33% of target &middot; 26% of break-even"><span class="d">12 Oct</span><span class="track"><i style="width:25.68%"></i></span><span class="v">217.5K</span></div>
-      <div class="row" title="13 Oct: 232.9K &middot; 36% of target &middot; 27% of break-even"><span class="d">13 Oct</span><span class="track"><i style="width:27.50%"></i></span><span class="v">232.9K</span></div>
-      <div class="row" title="14 Oct: 271.8K &middot; 42% of target &middot; 32% of break-even"><span class="d">14 Oct</span><span class="track"><i style="width:32.09%"></i></span><span class="v">271.8K</span></div>
-      <div class="row" title="15 Oct: 348.6K &middot; 54% of target &middot; 41% of break-even"><span class="d">15 Oct</span><span class="track"><i style="width:41.16%"></i></span><span class="v">348.6K</span></div>
-      <div class="row" title="16 Oct: 385.1K &middot; 59% of target &middot; 45% of break-even"><span class="d">16 Oct</span><span class="track"><i style="width:45.47%"></i></span><span class="v">385.1K</span></div>
-      <div class="row" title="17 Oct: 365.8K &middot; 56% of target &middot; 43% of break-even"><span class="d">17 Oct</span><span class="track"><i style="width:43.19%"></i></span><span class="v">365.8K</span></div>
-      <div class="row" title="18 Oct: 341.7K &middot; 53% of target &middot; 40% of break-even"><span class="d">18 Oct</span><span class="track"><i style="width:40.34%"></i></span><span class="v">341.7K</span></div>
-      <div class="row" title="19 Oct: 311.8K &middot; 48% of target &middot; 37% of break-even"><span class="d">19 Oct</span><span class="track"><i style="width:36.81%"></i></span><span class="v">311.8K</span></div>
-      <div class="row" title="20 Oct: 307.9K &middot; 47% of target &middot; 36% of break-even"><span class="d">20 Oct</span><span class="track"><i style="width:36.35%"></i></span><span class="v">307.9K</span></div>
-      <div class="row" title="21 Oct: 314.6K &middot; 48% of target &middot; 37% of break-even"><span class="d">21 Oct</span><span class="track"><i style="width:37.14%"></i></span><span class="v">314.6K</span></div>
-      <div class="row" title="22 Oct: 385.3K &middot; 59% of target &middot; 45% of break-even"><span class="d">22 Oct</span><span class="track"><i style="width:45.49%"></i></span><span class="v">385.3K</span></div>
-      <div class="row" title="23 Oct: 402.3K &middot; 62% of target &middot; 47% of break-even"><span class="d">23 Oct</span><span class="track"><i style="width:47.50%"></i></span><span class="v">402.3K</span></div>
-      <div class="row" title="24 Oct: 410.4K &middot; 63% of target &middot; 48% of break-even"><span class="d">24 Oct</span><span class="track"><i style="width:48.45%"></i></span><span class="v">410.4K</span></div>
-      <div class="row" title="25 Oct: 358.5K &middot; 55% of target &middot; 42% of break-even"><span class="d">25 Oct</span><span class="track"><i style="width:42.33%"></i></span><span class="v">358.5K</span></div>
+    <div class="eyebrow">03 &middot; November overall</div>
+    <h2>Overall monthly sales.</h2>
+    <p class="label">Total actual sales</p>
+    <div class="bignum">9,357,906</div>
+    <div class="kpi">
+      <div class="box"><span class="box-label">Total monthly target</span><span class="big">14,950,000</span><span class="sub">KES &middot; November</span></div>
+      <div class="box good"><span class="box-label">Target achievement</span><span class="big">62.6%</span><div class="bar"><i style="width:62.6%"></i></div></div>
+      <div class="box"><span class="box-label">Average sales per entry</span><span class="big">406,865</span><span class="sub">a trading day</span></div>
     </div>
-    <p class="note bad">No day in October reached the KES 650K target. Best day 6 Oct at 485.3K (75% of target); lowest 12 Oct at 217.5K.</p>
+    <p class="ref">Achievement is measured against the KES 650,000 daily target.</p>
   </section>
 
-  <!-- 05 period analysis -->
+  <!-- 05 best days -->
   <section class="slide tall">
-    <div class="eyebrow">04 &middot; October in five-day blocks</div>
-    <h2>Period analysis.</h2>
-    <div class="tablewrap"><table class="data periods">
-      <tr><th>Period</th><th class="num">Total sales</th><th class="num">Daily average</th><th class="num">Target achievement</th></tr>
-      <tr><td>Oct<span class="full">ober</span> 1&ndash;5</td><td class="num">1,684,724</td><td class="num">336,945</td><td class="num">51.8%</td></tr>
-      <tr><td>Oct<span class="full">ober</span> 6&ndash;10</td><td class="num">1,941,363</td><td class="num">388,273</td><td class="num">59.7%</td></tr>
-      <tr><td>Oct<span class="full">ober</span> 11&ndash;15</td><td class="num">1,447,789</td><td class="num">289,558</td><td class="num">44.5%</td></tr>
-      <tr><td>Oct<span class="full">ober</span> 16&ndash;20</td><td class="num">1,712,303</td><td class="num">342,461</td><td class="num">52.7%</td></tr>
-      <tr><td>Oct<span class="full">ober</span> 21&ndash;25</td><td class="num">1,870,652</td><td class="num">374,130</td><td class="num">57.6%</td></tr>
-    </table></div>
-    <div class="grid2">
-      <div class="box good"><span class="box-label">Strongest block</span><span class="big">59.7%</span><span class="sub">October 6&ndash;10 &middot; 388,273 a day</span><div class="bar"><i style="width:59.7%"></i></div></div>
-      <div class="box bad"><span class="box-label">Weakest block</span><span class="big">44.5%</span><span class="sub">October 11&ndash;15 &middot; 289,558 a day</span><div class="bar red"><i style="width:44.5%"></i></div></div>
+    <div class="eyebrow">04 &middot; November best days</div>
+    <h2>Best days analysis.</h2>
+    <div class="legend"><span><i class="t"></i>Daily target 650,000</span><span><i style="background:var(--fill)"></i>Below target</span><span><i></i>Above target</span></div>
+    <div class="rankchart">
+      <div class="row over" title="Day 8: 981,803 &middot; 151% of target"><span class="d"><b>1</b>Day 8</span><span class="track"><i style="width:100%"></i></span><span class="v">981,803</span><span class="p">151%</span></div>
+      <div class="row" title="Day 14: 617,264 &middot; 95% of target"><span class="d"><b>2</b>Day 14</span><span class="track"><i style="width:62.87%"></i></span><span class="v">617,264</span><span class="p">95%</span></div>
+      <div class="row" title="Day 21: 520,199 &middot; 80% of target"><span class="d"><b>3</b>Day 21</span><span class="track"><i style="width:52.98%"></i></span><span class="v">520,199</span><span class="p">80%</span></div>
+      <div class="row" title="Day 1: 468,260 &middot; 72% of target"><span class="d"><b>4</b>Day 1</span><span class="track"><i style="width:47.69%"></i></span><span class="v">468,260</span><span class="p">72%</span></div>
+      <div class="row" title="Day 16: 457,227 &middot; 70% of target"><span class="d"><b>5</b>Day 16</span><span class="track"><i style="width:46.57%"></i></span><span class="v">457,227</span><span class="p">70%</span></div>
+      <div class="row" title="Day 7: 439,171 &middot; 68% of target"><span class="d"><b>6</b>Day 7</span><span class="track"><i style="width:44.73%"></i></span><span class="v">439,171</span><span class="p">68%</span></div>
+      <div class="row" title="Day 23: 410,197 &middot; 63% of target"><span class="d"><b>7</b>Day 23</span><span class="track"><i style="width:41.78%"></i></span><span class="v">410,197</span><span class="p">63%</span></div>
+      <div class="row" title="Day 20: 408,087 &middot; 63% of target"><span class="d"><b>8</b>Day 20</span><span class="track"><i style="width:41.56%"></i></span><span class="v">408,087</span><span class="p">63%</span></div>
+      <div class="row" title="Day 11: 407,670 &middot; 63% of target"><span class="d"><b>9</b>Day 11</span><span class="track"><i style="width:41.52%"></i></span><span class="v">407,670</span><span class="p">63%</span></div>
+      <div class="row" title="Day 5: 373,887 &middot; 58% of target"><span class="d"><b>10</b>Day 5</span><span class="track"><i style="width:38.08%"></i></span><span class="v">373,887</span><span class="p">58%</span></div>
     </div>
-    <p class="ref">Target achievement = daily average vs the KES 650,000 daily target.</p>
+    <p class="note good">Day 8 was the only day above target: KES 981,803, 151% of the KES 650,000 target.</p>
   </section>
 
   <!-- 06 issues raised -->
@@ -206,87 +189,55 @@ table.periods td:first-child{white-space:nowrap;overflow-wrap:normal}
     <div class="eyebrow">05 &middot; Issues</div>
     <h2>Issues raised.</h2>
     <ol class="numlist">
-      <li>Marketing and operational updates need to be communicated consistently to the wider team.</li>
-      <li>Robert and the relevant marketing lead were tasked with ensuring new information is included in morning/afternoon briefings.</li>
-      <li>An emergency exit for the shop to be identified.</li>
-      <li>The branch raised concerns around system speed, efficiency and customer information.</li>
-      <li>System improvements should support customer classification, benefits, points and delivery information.</li>
-      <li>The generator in Ruiru isn&rsquo;t operational at the moment.</li>
+      <li>Corporate deliveries transport was a concern.</li>
+      <li>Brian Kevogo raised the need for fans in the shop to arrest the extreme heat.</li>
+      <li>Bakers requested more crates for bread production.</li>
+      <li>We need an operational generator.</li>
+      <li>Unavailability of stocks in the POS.</li>
     </ol>
+    <p class="note">Not yet reported closed: unavailability of stocks in the POS.</p>
   </section>
 
-  <!-- 07 issues solved / not solved -->
+  <!-- 07 issues closed -->
   <section class="slide tall">
     <div class="eyebrow">06 &middot; Progress</div>
-    <h2>Issues solved / not solved.</h2>
-    <div class="grid2">
-      <div class="box good"><span class="box-label">Marketing updates</span><p><span class="tag ok">Improving</span></p><p>The marketing team has been updating the team on corporate sales; the process is becoming clear to most staff and gaining interest on how to.</p></div>
-      <div class="box flag"><span class="box-label">Emergency exit</span><p><span class="tag warn">In progress</span></p><p>An emergency exit is still in the process.</p></div>
-      <div class="box flag"><span class="box-label">Internet</span><p><span class="tag warn">Partly solved</span></p><p>The IT team has been of help on internet issues, but most Sundays the internet fails. We want a permanent solution.</p></div>
-      <div class="box bad"><span class="box-label">Generator</span><p><span class="tag bad">Not solved</span></p><p>The generator is still not working, leaving us with uncertainty whenever blackouts happen.</p></div>
+    <h2>Issues closed.</h2>
+    <div class="pairs">
+      <div class="box good"><span class="box-label">Fans</span><p><span class="tag ok">Closed</span></p><p>The fans were brought in the shop, though few, but we are grateful. We would request for more.</p></div>
+      <div class="box good"><span class="box-label">Crates</span><p><span class="tag ok">Closed</span></p><p>The bakers have enough crates, though our suggestion is to have the hot kitchen fully operational to help in having bread production day and night to meet our customers&rsquo; demand.</p></div>
+      <div class="box good"><span class="box-label">Deliveries</span><p><span class="tag ok">Closed</span></p><p>A rider (Luke) came in from 11th Nov, easing the delivery load.</p></div>
+      <div class="box good"><span class="box-label">Generator</span><p><span class="tag ok">Closed</span></p><p>The generator was replaced and we are thankful. No more blackout days.</p></div>
     </div>
   </section>
 
-  <!-- 08 hr -->
+  <!-- 08 updates -->
   <section class="slide tall">
-    <div class="eyebrow">07 &middot; People</div>
-    <h2>HR updates.</h2>
-    <p class="why">The following key HR matters were highlighted:</p>
+    <div class="eyebrow">07 &middot; Branch</div>
+    <h2>Updates.</h2>
     <ol class="numlist">
-      <li><b>Attendance and punctuality:</b> staff were reminded to observe working hours and report to work on time.</li>
-      <li><b>Leave management:</b> employees were encouraged to follow the proper leave application procedures and communicate their requests through the appropriate channels.</li>
-      <li><b>Staff conduct:</b> emphasis was placed on adhering to company policies, procedures, and professional standards.</li>
-      <li><b>Employee welfare:</b> staff were encouraged to raise workplace concerns through the appropriate channels.</li>
-      <li><b>Communication:</b> employees were reminded of the established channels for reporting staff issues and seeking assistance.</li>
-      <li><b>Staff activities:</b> upcoming staff activities and important HR dates were highlighted.</li>
+      <li><b>Branch manager:</b> Ben was promoted to branch manager, but days later he resigned and we wish him well.</li>
+      <li>We are glad that Xana is nurturing leaders.</li>
+      <li><b>Stock take:</b> conducted on 15th November.</li>
+      <li><b>Family fun day:</b> we appreciate the marketing team for planning it, and we look forward to another one in the next quarter.</li>
+      <li><b>Sales:</b> at 62.6% the shop is still below target and we look forward to increasing sales.</li>
     </ol>
   </section>
 
-  <!-- 09 welfare -->
-  <section class="slide tall">
-    <div class="eyebrow">08 &middot; People</div>
-    <h2>Staff welfare.</h2>
-    <p class="why">The meeting discussed the importance of maintaining a healthy and supportive working environment. Key points included:</p>
-    <ol class="numlist">
-      <li>Promoting mutual respect and understanding among colleagues.</li>
-      <li>Encouraging staff to communicate challenges that may affect their well-being or work performance.</li>
-      <li>Supporting colleagues experiencing difficult personal circumstances.</li>
-      <li>Encouraging participation in staff welfare initiatives.</li>
-      <li>Maintaining confidentiality and sensitivity when handling personal staff matters.</li>
-    </ol>
-  </section>
-
-  <!-- 10 performance & customer experience -->
-  <section class="slide tall">
-    <div class="eyebrow">09 &middot; Customers</div>
-    <h2>Performance and customer experience.</h2>
-    <p class="why">The meeting emphasized the role of every employee in achieving business objectives and delivering an excellent customer experience. The following areas were highlighted:</p>
-    <ol class="numlist">
-      <li>Providing friendly, professional, and consistent customer service.</li>
-      <li>Taking ownership of customer concerns and ensuring timely resolution.</li>
-      <li>Strengthening teamwork and collaboration between departments.</li>
-      <li>Maintaining professionalism when dealing with customers, colleagues, and management.</li>
-      <li>Working towards individual, departmental, and branch targets.</li>
-      <li>Handling customer complaints promptly, respectfully, and effectively.</li>
-    </ol>
-    <p class="note good">Staff were encouraged to embrace a customer-focused culture and contribute to the overall success of their respective branches.</p>
-  </section>
-
-  <!-- 11 spocs -->
+  <!-- 09 hub pharmacies -->
   <section class="slide band">
     <div class="inner">
-      <div class="eyebrow">10 &middot; Around the hub</div>
-      <h1>XanaLife SPOCs around the hub.</h1>
-      <p class="lede">The SPOCs around the hub &mdash; Githurai, Lumumba and TRM pharmacies &mdash; are doing well, with Githurai sales coming up. We are looking forward to having them break even too.</p>
+      <div class="eyebrow">08 &middot; Around the hub</div>
+      <h1>XanaLife pharmacies around the hub.</h1>
+      <p class="lede">The pharmacies around the hub &mdash; Githurai, Lumumba and TRM &mdash; will give their brief report after this.</p>
     </div>
   </section>
 
-  <!-- 12 close -->
+  <!-- 10 close -->
   <section class="slide band">
     <div class="inner">
       <div class="eyebrow">XanaLife Ruiru &middot; monthly meeting</div>
       <h1>Thank you.</h1>
-      <p class="lede">Prepared by supervisors Antony and Benard.</p>
+      <p class="lede">Prepared by Millie and Anthony.</p>
       <p class="ref" style="color:rgba(244,248,245,.55)">Internal use &middot; figures as presented in the monthly meeting deck</p>
     </div>
   </section>
@@ -297,7 +248,7 @@ table.periods td:first-child{white-space:nowrap;overflow-wrap:normal}
   <span class="who">XanaLife Ruiru &middot; monthly meeting</span>
   <div class="nav">
     <button type="button" id="prev" aria-label="Previous slide">&larr; Back</button>
-    <span class="counter" id="counter">1 / 12</span>
+    <span class="counter" id="counter">1 / 10</span>
     <button type="button" id="next" aria-label="Next slide">Next &rarr;</button>
   </div>
 </div>
@@ -307,7 +258,7 @@ table.periods td:first-child{white-space:nowrap;overflow-wrap:normal}
   var slides=Array.prototype.slice.call(document.querySelectorAll(".slide"));
   var counter=document.getElementById("counter"),bar=document.getElementById("progress");
   var prevBtn=document.getElementById("prev"),nextBtn=document.getElementById("next");
-  document.querySelectorAll(".numlist,.grid2,.grid3").forEach(function(list){
+  document.querySelectorAll(".numlist,.grid2,.grid3,.grid4,.pairs,.kpi,.rankchart").forEach(function(list){
     Array.prototype.forEach.call(list.children,function(child,idx){child.style.setProperty("--n",idx)});
   });
   var i=0;
